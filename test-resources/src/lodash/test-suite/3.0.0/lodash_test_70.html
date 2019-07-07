@@ -1,0 +1,16 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      var users = [
+        { 'user': 'barney', 'age': 36 },
+        { 'user': 'fred',   'age': 40 },
+        { 'user': 'barney', 'age': 26 },
+        { 'user': 'fred',   'age': 30 }
+      ];
+     
+      _.map(_.sortByAll(users, ['user', 'age']), _.values);
+      // => [['barney', 26], ['barney', 36], ['fred', 30], ['fred', 40]]
+
+
+</script></head><body></body></html>

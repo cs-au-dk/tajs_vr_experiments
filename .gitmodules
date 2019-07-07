@@ -1,0 +1,7 @@
+
+[submodule "submodules/tajs_vr"]
+	path = submodules/tajs_vr
+	url = https://github.com/cs-au-dk/tajs_vr.git
+[submodule "submodules/js_value_refiner"]
+	path = submodules/js_value_refiner
+	url = https://github.com/cuplv/js_value_refiner.git

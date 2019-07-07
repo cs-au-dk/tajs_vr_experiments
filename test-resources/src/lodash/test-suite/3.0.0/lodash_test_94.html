@@ -1,0 +1,31 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+
+      var users = [
+        { 'user': 'barney' },
+        { 'user': 'fred' }
+      ];
+
+      var shallow = _.clone(users);
+      shallow[0] === users[0];
+      // => true
+
+      var deep = _.clone(users, true);
+      deep[0] === users[0];
+      // => false
+
+      // using a customizer callback
+      var body = _.clone(document.body, function(value) {
+        return _.isElement(value) ? value.cloneNode(false) : undefined;
+      });
+
+      body === document.body
+      // => false
+      body.nodeName
+      // => BODY
+      body.childNodes.length;
+      // => 0
+
+
+</script></head><body></body></html>

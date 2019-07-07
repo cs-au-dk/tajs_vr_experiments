@@ -1,0 +1,12 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	_.groupBy([6.1, 4.2, 6.3], Math.floor);
+	// => { '4': [4.2], '6': [6.1, 6.3] }
+
+	// The `_.property` iteratee shorthand.
+	_.groupBy(['one', 'two', 'three'], 'length');
+	// => { '3': ['one', 'two'], '5': ['three'] }
+
+</script></head><body></body></html>

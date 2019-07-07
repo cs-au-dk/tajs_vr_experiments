@@ -1,0 +1,23 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      var users = [
+        { 'user': 'barney',  'age': 36, 'active': true },
+        { 'user': 'fred',    'age': 40, 'active': false },
+        { 'user': 'pebbles', 'age': 1,  'active': false }
+      ];
+     
+      _.findLastIndex(users, function(chr) { return chr.age < 40; });
+      // => 2
+     
+      // using the "_.matches" callback shorthand
+      _.findLastIndex(users, { 'age': 40 });
+      // => 1
+     
+      // using the "_.property" callback shorthand
+      _.findLastIndex(users, 'active');
+      // => 0
+
+
+</script></head><body></body></html>

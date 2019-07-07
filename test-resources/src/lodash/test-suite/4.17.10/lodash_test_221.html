@@ -1,0 +1,18 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var object = { 'a': [{ 'b': { 'c': 7 } }] };
+	_.unset(object, 'a[0].b.c');
+	// => true
+
+	console.log(object);
+	// => { 'a': [{ 'b': {} }] };
+
+	_.unset(object, ['a', '0', 'b', 'c']);
+	// => true
+
+	console.log(object);
+	// => { 'a': [{ 'b': {} }] };
+
+</script></head><body></body></html>

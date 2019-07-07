@@ -1,0 +1,13 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var say = _.rest(function(what, names) {
+	  return what + ' ' + _.initial(names).join(', ') +
+	    (_.size(names) > 1 ? ', & ' : '') + _.last(names);
+	});
+
+	say('hello', 'fred', 'barney', 'pebbles');
+	// => 'hello fred, barney, & pebbles'
+
+</script></head><body></body></html>

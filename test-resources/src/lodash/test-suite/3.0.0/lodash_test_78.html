@@ -1,0 +1,29 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      var object = {
+        'user': 'fred',
+        'greet': function(greeting, punctuation) {
+          return greeting + ' ' + this.user + punctuation;
+        }
+      };
+     
+      var bound = _.bindKey(object, 'greet', 'hi');
+      bound('!');
+      // => 'hi fred!'
+     
+      object.greet = function(greeting, punctuation) {
+        return greeting + 'ya ' + this.user + punctuation;
+      };
+     
+      bound('!');
+      // => 'hiya fred!'
+     
+      // using placeholders
+      var bound = _.bindKey(object, 'greet', _, '!');
+      bound('hi');
+      // => 'hiya fred!'
+
+
+</script></head><body></body></html>

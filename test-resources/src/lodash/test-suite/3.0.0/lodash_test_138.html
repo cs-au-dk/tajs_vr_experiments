@@ -1,0 +1,20 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      var object = { 'user': 'fred', 'age': _.constant(40) };
+     
+      _.result(object, 'user');
+      // => 'fred'
+     
+      _.result(object, 'age');
+      // => 40
+     
+      _.result(object, 'status', 'busy');
+      // => 'busy'
+     
+      _.result(object, 'status', _.constant('busy'));
+      // => 'busy'
+
+
+</script></head><body></body></html>

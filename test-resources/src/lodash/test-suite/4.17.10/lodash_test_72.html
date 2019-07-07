@@ -1,0 +1,16 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var wrapped = _([1, 2]);
+
+	wrapped.next();
+	// => { 'done': false, 'value': 1 }
+
+	wrapped.next();
+	// => { 'done': false, 'value': 2 }
+
+	wrapped.next();
+	// => { 'done': true, 'value': undefined }
+
+</script></head><body></body></html>

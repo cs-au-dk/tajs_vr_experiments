@@ -1,0 +1,21 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      _.uniq([1, 2, 1]);
+      // => [1, 2]
+     
+      // using `isSorted`
+      _.uniq([1, 1, 2], true);
+      // => [1, 2]
+     
+      // using an iteratee function
+      _.uniq([1, 2.5, 1.5, 2], function(n) { return this.floor(n); }, Math);
+      // => [1, 2.5]
+     
+      // using the "_.property" callback shorthand
+      _.uniq([{ 'x': 1 }, { 'x': 2 }, { 'x': 1 }], 'x');
+      // => [{ 'x': 1 }, { 'x': 2 }]
+
+
+</script></head><body></body></html>

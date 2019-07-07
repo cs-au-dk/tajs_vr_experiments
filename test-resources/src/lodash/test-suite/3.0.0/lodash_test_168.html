@@ -1,0 +1,19 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      var users = [
+        { 'user': 'fred',   'age': 40 },
+        { 'user': 'barney', 'age': 36 }
+      ];
+     
+      var matchesAge = _.matches({ 'age': 36 });
+     
+      _.filter(users, matchesAge);
+      // => [{ 'user': 'barney', 'age': 36 }]
+     
+      _.find(users, matchesAge);
+      // => { 'user': 'barney', 'age': 36 }
+
+
+</script></head><body></body></html>

@@ -1,0 +1,23 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      _.dropRightWhile([1, 2, 3], function(n) { return n > 1; });
+      // => [1]
+     
+      var users = [
+        { 'user': 'barney',  'status': 'busy', 'active': false },
+        { 'user': 'fred',    'status': 'busy', 'active': true },
+        { 'user': 'pebbles', 'status': 'away', 'active': true }
+      ];
+     
+      // using the "_.property" callback shorthand
+      _.pluck(_.dropRightWhile(users, 'active'), 'user');
+      // => ['barney']
+     
+      // using the "_.matches" callback shorthand
+      _.pluck(_.dropRightWhile(users, { 'status': 'away' }), 'user');
+      // => ['barney', 'fred']
+
+
+</script></head><body></body></html>

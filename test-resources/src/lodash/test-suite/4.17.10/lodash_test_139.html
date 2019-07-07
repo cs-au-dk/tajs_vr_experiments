@@ -1,0 +1,17 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	_.isArrayLike([1, 2, 3]);
+	// => true
+
+	_.isArrayLike(document.body.children);
+	// => true
+
+	_.isArrayLike('abc');
+	// => true
+
+	_.isArrayLike(_.noop);
+	// => false
+
+</script></head><body></body></html>

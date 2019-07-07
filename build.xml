@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project name="TAJS-VR" default="all" basedir=".">
+
+    <property name="project" value="tajsvr"/>
+    <property name="version" value="0.1"/>
+    <property name="release" value="1"/>
+
+    <property name="src" value="src"/>
+    <property name="resources" value="resources"/>
+    <property name="test-resources" value="test-resources"/>
+    <property name="build" value="antbuild"/>
+    <property name="temp" value="temp"/>
+    <property name="dist" value="dist"/>
+    <property name="lib" value="lib"/>
+    <property name="test" value="test"/>
+    <property name="TAJS" value="submodules/tajs_vr"/>
+    <property name="ValueRefiner" value="submodules/js_value_refiner"/>
+    <property name="optimize" value="on"/>
+    <property name="debug" value="on"/>
+
+    <path id="classpath">
+        <fileset dir="." includes="${lib}/*.jar"/>
+        <pathelement location="${ValueRefiner}/dist/js_value_refiner.jar"/>
+        <pathelement location="${TAJS}/dist/tajs-all.jar"/>
+    </path>
+
+    <path id="classpath.test">
+        <fileset dir=".">
+            <include name="${lib}/*.jar"/>
+            <include name="${lib}/test/*.jar"/>
+        </fileset>
+        <pathelement location="${build}"/>
+    </path>
+
+    <target name="all" depends="clean,build-submodule-jars,jar-all"/>
+
+    <target name="compile">
+        <mkdir dir="${build}"/>
+        <javac srcdir="${src}" includes="**" destdir="${build}" optimize="${optimize}"
+               debug="${debug}" includeantruntime="false">
+            <classpath refid="classpath"/>
+            <compilerarg line="-encoding ISO-8859-1" compiler="modern"/>
+        </javac>
+        <copy todir="antbuild">
+            <fileset dir="test-resources"/>
+        </copy>
+    </target>
+
+    <target name="jar" depends="clean,compile">
+        <mkdir dir="${dist}"/>
+        <jar jarfile="${dist}/${project}.jar" basedir="${build}" includes="**"/>
+    </target>
+
+    <target name="jar-all" depends="jar">
+        <jar jarfile="dist/${project}-all.jar" basedir="${lib}" includes="**/*.*">
+            <zipgroupfileset dir="${lib}" includes="*.jar"/>
+            <zipfileset src="${TAJS}/dist/tajs-all.jar"/>
+            <zipfileset src="${ValueRefiner}/dist/js_value_refiner.jar"/>
+            <zipfileset src="${dist}/${project}.jar"/>
+            <manifest>
+                <attribute name="Main-Class" value="dk.brics.tajsvr.TAJSVRExperimentsMain"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build}"/>
+        <delete dir="${dist}"/>
+    </target>
+
+    <target name="compile-test" depends="compile">
+        <javac srcdir="${test}" includes="**" destdir="${build}" optimize="${optimize}" debug="${debug}"
+               includeantruntime="false" source="1.8">
+            <classpath refid="classpath.test"/>
+            <compilerarg line="-encoding ISO-8859-1" compiler="modern"/>
+            <compilerarg line="-Xlint -Xlint:-serial -Xlint:-path" compiler="modern"/>
+        </javac>
+        <copy todir="${build}">
+            <fileset dir="${test-resources}"/>
+            <fileset dir="../test"/>
+        </copy>
+    </target>
+
+    <target name="pull-value-refiner">
+        <exec executable="git" dir="${ValueRefiner}">
+            <arg value="pull"/>
+        </exec>
+    </target>
+
+    <target name="pull-tajs">
+        <exec executable="git" dir="${TAJS}">
+            <arg value="pull"/>
+        </exec>
+    </target>
+
+    <target name="build-tajs-jar">
+        <exec executable="ant" dir="${TAJS}">
+            <arg value="jar-all"/>
+        </exec>
+    </target>
+
+    <target name="build-value-refiner-jar">
+        <exec executable="sbt" dir="${ValueRefiner}">
+            <arg value="clean"/>
+        </exec>
+        <copy tofile="${ValueRefiner}/lib/tajs-all.jar" file="${TAJS}/dist/tajs-all.jar"/>
+        <exec executable="sbt" dir="${ValueRefiner}">
+            <arg value="package"/>
+        </exec>
+    </target>
+
+    <target name="build-submodule-jars" depends="build-tajs-jar,build-value-refiner-jar"/>
+</project>

@@ -1,0 +1,16 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var view = {
+	  'label': 'docs',
+	  'click': function() {
+	    console.log('clicked ' + this.label);
+	  }
+	};
+
+	_.bindAll(view, ['click']);
+	jQuery(element).on('click', view.click);
+	// => Logs 'clicked docs' when clicked.
+
+</script></head><body></body></html>

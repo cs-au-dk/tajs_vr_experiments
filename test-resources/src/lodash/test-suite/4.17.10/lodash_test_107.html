@@ -1,0 +1,20 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	function greet(greeting, punctuation) {
+	  return greeting + ' ' + this.user + punctuation;
+	}
+
+	var object = { 'user': 'fred' };
+
+	var bound = _.bind(greet, object, 'hi');
+	bound('!');
+	// => 'hi fred!'
+
+	// Bound with placeholders.
+	var bound = _.bind(greet, object, _, '!');
+	bound('hi');
+	// => 'hi fred!'
+
+</script></head><body></body></html>

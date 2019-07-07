@@ -1,0 +1,23 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      var users = [
+        { 'user': 'barney',  'age': 36, 'active': false },
+        { 'user': 'fred',    'age': 40, 'active': true },
+        { 'user': 'pebbles', 'age': 1,  'active': false }
+      ];
+     
+      _.result(_.find(users, function(chr) { return chr.age < 40; }), 'user');
+      // => 'barney'
+     
+      // using the "_.matches" callback shorthand
+      _.result(_.find(users, { 'age': 1 }), 'user');
+      // => 'pebbles'
+     
+      // using the "_.property" callback shorthand
+      _.result(_.find(users, 'active'), 'user');
+      // => 'fred'
+
+
+</script></head><body></body></html>

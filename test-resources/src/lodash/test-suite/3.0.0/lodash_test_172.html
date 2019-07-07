@@ -1,0 +1,19 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      var users = [
+        { 'user': 'fred' },
+        { 'user': 'barney' }
+      ];
+     
+      var getName = _.property('user');
+     
+      _.map(users, getName);
+      // => ['fred', barney']
+     
+      _.pluck(_.sortBy(users, getName), 'user');
+      // => ['barney', 'fred']
+
+
+</script></head><body></body></html>

@@ -1,0 +1,16 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      // avoid excessively updating the position while scrolling
+      jQuery(window).on('scroll', _.throttle(updatePosition, 100));
+     
+      // invoke `renewToken` when the click event is fired, but not more than once every 5 minutes
+      var throttled =  _.throttle(renewToken, 300000, { 'trailing': false })
+      jQuery('.interactive').on('click', throttled);
+     
+      // cancel a trailing throttled call
+      jQuery(window).on('popstate', throttled.cancel);
+
+
+</script></head><body></body></html>

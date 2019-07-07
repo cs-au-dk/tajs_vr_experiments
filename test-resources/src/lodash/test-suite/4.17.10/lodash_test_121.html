@@ -1,0 +1,12 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var rearged = _.rearg(function(a, b, c) {
+	  return [a, b, c];
+	}, [2, 0, 1]);
+
+	rearged('b', 'c', 'a')
+	// => ['a', 'b', 'c']
+
+</script></head><body></body></html>

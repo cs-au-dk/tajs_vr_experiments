@@ -1,0 +1,12 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var flipped = _.flip(function() {
+	  return _.toArray(arguments);
+	});
+
+	flipped('a', 'b', 'c', 'd');
+	// => ['d', 'c', 'b', 'a']
+
+</script></head><body></body></html>

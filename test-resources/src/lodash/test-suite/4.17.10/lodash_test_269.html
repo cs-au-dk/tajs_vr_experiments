@@ -1,0 +1,13 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var objects = [
+	  { 'a': 1, 'b': 2, 'c': 3 },
+	  { 'a': 4, 'b': 5, 'c': 6 }
+	];
+
+	_.filter(objects, _.matches({ 'a': 4, 'c': 6 }));
+	// => [{ 'a': 4, 'b': 5, 'c': 6 }]
+
+</script></head><body></body></html>

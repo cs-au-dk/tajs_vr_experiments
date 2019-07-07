@@ -1,0 +1,25 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      var users = [
+        { 'user': 'barney', 'age': 36 },
+        { 'user': 'fred',   'age': 40 }
+      ];
+     
+      // wrap to create custom callback shorthands
+      _.callback = _.wrap(_.callback, function(callback, func, thisArg) {
+        var match = /^(.+?)__([gl]t)(.+)$/.exec(func);
+        if (!match) {
+          return callback(func, thisArg);
+        }
+        return function(object) {
+          return match[2] == 'gt' ? object[match[1]] > match[3] : object[match[1]] < match[3];
+        };
+      });
+     
+      _.filter(users, 'age__gt36');
+      // => [{ 'user': 'fred', 'age': 40 }]
+
+
+</script></head><body></body></html>

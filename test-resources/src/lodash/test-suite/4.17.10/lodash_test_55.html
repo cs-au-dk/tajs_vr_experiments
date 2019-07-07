@@ -1,0 +1,10 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var objects = [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }, { 'x': 1, 'y': 2 }];
+
+	_.uniqWith(objects, _.isEqual);
+	// => [{ 'x': 1, 'y': 2 }, { 'x': 2, 'y': 1 }]
+
+</script></head><body></body></html>

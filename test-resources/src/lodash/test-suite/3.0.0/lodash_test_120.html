@@ -1,0 +1,24 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      function Shape() {
+        this.x = 0;
+        this.y = 0;
+      }
+     
+      function Circle() {
+        Shape.call(this);
+      }
+     
+      Circle.prototype = _.create(Shape.prototype, { 'constructor': Circle });
+     
+      var circle = new Circle;
+      circle instanceof Circle;
+      // => true
+     
+      circle instanceof Shape;
+      // => true
+
+
+</script></head><body></body></html>

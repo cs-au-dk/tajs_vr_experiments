@@ -1,0 +1,17 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      var users = [
+        { 'user': 'barney', 'age': 36, 'status': 'busy' },
+        { 'user': 'fred',   'age': 40, 'status': 'busy' }
+      ];
+     
+      _.result(_.findWhere(users, { 'status': 'busy' }), 'user');
+      // => 'barney'
+     
+      _.result(_.findWhere(users, { 'age': 40 }), 'user');
+      // => 'fred'
+
+
+</script></head><body></body></html>

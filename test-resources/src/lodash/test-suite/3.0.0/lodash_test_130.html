@@ -1,0 +1,17 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      _.invert({ 'first': 'fred', 'second': 'barney' });
+      // => { 'fred': 'first', 'barney': 'second' }
+     
+      // without `multiValue`
+      _.invert({ 'first': 'fred', 'second': 'barney', 'third': 'fred' });
+      // => { 'fred': 'third', 'barney': 'second' }
+     
+      // with `multiValue`
+      _.invert({ 'first': 'fred', 'second': 'barney', 'third': 'fred' }, true);
+      // => { 'fred': ['first', 'third'], 'barney': ['second'] }
+
+
+</script></head><body></body></html>

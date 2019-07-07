@@ -1,0 +1,23 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      var users = {
+        'barney':  { 'age': 36, 'active': true },
+        'fred':    { 'age': 40, 'active': false },
+        'pebbles': { 'age': 1,  'active': true }
+      };
+     
+      _.findKey(users, function(chr) { return chr.age < 40; });
+      // => 'barney' (iteration order is not guaranteed)
+     
+      // using the "_.matches" callback shorthand
+      _.findKey(users, { 'age': 1 });
+      // => 'pebbles'
+     
+      // using the "_.property" callback shorthand
+      _.findKey(users, 'active');
+      // => 'barney'
+
+
+</script></head><body></body></html>

@@ -1,0 +1,17 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	_.isObjectLike({});
+	// => true
+
+	_.isObjectLike([1, 2, 3]);
+	// => true
+
+	_.isObjectLike(_.noop);
+	// => false
+
+	_.isObjectLike(null);
+	// => false
+
+</script></head><body></body></html>

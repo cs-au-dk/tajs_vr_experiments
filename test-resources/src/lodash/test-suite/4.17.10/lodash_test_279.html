@@ -1,0 +1,16 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var func = _.overSome([Boolean, isFinite]);
+
+	func('1');
+	// => true
+
+	func(null);
+	// => true
+
+	func(NaN);
+	// => false
+
+</script></head><body></body></html>

@@ -1,0 +1,12 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	_.intersectionBy([2.1, 1.2], [2.3, 3.4], Math.floor);
+	// => [2.1]
+
+	// The `_.property` iteratee shorthand.
+	_.intersectionBy([{ 'x': 1 }], [{ 'x': 2 }, { 'x': 1 }], 'x');
+	// => [{ 'x': 1 }]
+
+</script></head><body></body></html>

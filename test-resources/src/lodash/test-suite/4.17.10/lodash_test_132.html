@@ -1,0 +1,13 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var object = { 'a': 1, 'b': 2 };
+
+	_.conformsTo(object, { 'b': function(n) { return n > 1; } });
+	// => true
+
+	_.conformsTo(object, { 'b': function(n) { return n > 2; } });
+	// => false
+
+</script></head><body></body></html>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="tajs-all">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/submodules/thresherjs/tajs-all.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

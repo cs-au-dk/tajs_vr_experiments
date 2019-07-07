@@ -1,0 +1,137 @@
+<html>
+<head>
+    <title>TAJS Statistics</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"
+            integrity="sha256-eXHLyyVI+v6X1wbfg9NB05IWqOqY4E9185nHZgeDIhg=" crossorigin="anonymous"></script>
+    <style>
+        td {white-space: nowrap}
+        .search {width: 200px}
+        .good {background: #afa}
+        .medium {background: #ffa}
+        .bad {background: #faa}
+        table,.search input {font-size: 10px}
+        th {font-size: 13px}
+
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <h1>TAJS Statistics</h1>
+    <table id="table" class="table table-sm" data-show-columns="true">
+        <thead>
+        <tr>
+            <th data-field="name" data-sortable="true" data-switchable="false" data-toggle="tooltip" title="Path of the benchmark">Name</th>
+            <th data-field="options" data-sortable="true" data-switchable="false" data-toggle="tooltip" title="Analysis options">Options</th>
+            <th data-field="time" data-align="right" data-formatter="twodecimals" data-sortable="true" data-searchable="false" data-toggle="tooltip" title="Analysis time in seconds">Time</th>
+            <th data-field="error" data-align="right" data-sortable="true" data-searchable="false" data-cell-style="cellStyle" data-toggle="tooltip" title="Analysis errors, if any">Error</th>
+            <th data-field="Analysis_time" data-align="right" data-sortable="true" data-searchable="false" data-toggle="tooltip" title="Time in solve">Dataflow time</th>
+            <th data-field="Assumption_checking_time" data-align="right" data-sortable="true" data-searchable="false" data-toggle="tooltip" title="Assumption checking time">Assumption checking time</th>
+            <th data-field="Refinement_time" data-align="right" data-sortable="true" data-searchable="false" data-toggle="tooltip" title="Refinement time">Refinement time</th>
+            <th data-field="number_queries_value_refiner" data-align="right" data-sortable="true" data-searchable="false" data-toggle="tooltip" title="Number of queries to value refiner">#Queries value refiner</th>
+            <th data-field="number_queries_cache" data-align="right" data-sortable="true" data-searchable="false" data-toggle="tooltip" title="Number of queries cache">#Queries Cache</th>
+            <th data-field="number_different_queries" data-align="right" data-sortable="true" data-searchable="false" data-toggle="tooltip" title="Number of different queries">#diff queries</th>
+            <th data-field="average_refinement_time" data-align="right" data-sortable="true" data-searchable="false" data-cell-style="cellStyle" data-toggle="tooltip" title="Average refinement time value refiner">Average refinement time value refiner</th>
+            <th data-field="number_exceptions_from_refiner" data-align="right" data-sortable="true" data-searchable="false" data-cell-style="cellStyle" data-toggle="tooltip" title="Number of queries that raised an exception in the refiner">#Exceptions in refiner</th>
+            <th data-field="Refinement_nodes" data-align="right" data-sortable="true" data-searchable="false" data-cell-style="cellStyle" data-toggle="tooltip" title="Refinement nodes and number of refinements">Refinement nodes</th>
+
+        </tr>
+        </thead>
+    </table>
+    <p id="msg"></p>
+</div>
+<script>
+
+var q = window.location.search;
+if (q.startsWith("?")) {
+    var s = document.createElement('script');
+    s.src = q.substring(1) + ".jsonp";
+    s.type = "text/javascript";
+    s.onload = function() {
+        $('#table').bootstrapTable({data: data, search: true}).bootstrapTable('hideLoading');
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+    document.getElementsByTagName('body')[0].appendChild(s);
+} else {
+    $(function () {
+        $('#msg').text("Data file name missing in URL");
+    });
+}
+
+function twodecimals(v) {
+    return v !== undefined ? v.toFixed(2) : "";
+}
+
+function cellStyle(value, row, index, field) {
+  var status = '';
+  if (field == 'transfers_per_visited_node') {
+    if (value > 20)
+        status = 'bad';
+    else if (value > 10)
+        status = 'medium';
+    else
+        status = 'good';
+  } else if (field == 'states_per_block') {
+    if (value > 5)
+        status = 'bad';
+    else if (value > 3)
+        status = 'medium';
+    else
+        status = 'good';
+  } else if (field == 'average_state_size') {
+    if (value > 500)
+        status = 'bad';
+    else if (value > 200)
+        status = 'medium';
+    else
+        status = 'good';
+  } else if (field == 'visited_div_total_nodes') {
+    if (value < 0.3)
+        status = 'bad';
+    else if (value < 0.7)
+        status = 'medium';
+    else
+        status = 'good';
+  } else if (field == 'error') {
+    if (value)
+        status = 'bad';
+    else
+        status = 'good';
+  } else if (field == 'callnodes_to_nonfunction') {
+    if (value > 0.2)
+        status = 'bad';
+    else if (value > 0.1)
+        status = 'medium';
+    else
+        status = 'good';
+  } else if (field == 'callnodes_to_native_and_user_functions' ||
+             field == 'callnodes_to_multiple_native_functions' ||
+             field == 'callnodes_polymorphic' ||
+             field == 'callnodes_megamorphic') {
+    if (value > 5)
+        status = 'bad';
+    else if (value > 0)
+        status = 'medium';
+    else
+        status = 'good';
+  } else if (field = 'average_node_transfer_time') {
+    if (value > 25)
+        status = 'bad';
+    else if (value > 5)
+        status = 'medium';
+    else
+        status = 'good';
+  }
+  return {
+    classes: status,
+  };
+}
+
+</script>
+</body>
+</html>

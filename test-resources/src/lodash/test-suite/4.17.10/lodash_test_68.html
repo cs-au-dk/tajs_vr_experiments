@@ -1,0 +1,14 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	_('  abc  ')
+	 .chain()
+	 .trim()
+	 .thru(function(value) {
+	   return [value];
+	 })
+	 .value();
+	// => ['abc']
+
+</script></head><body></body></html>

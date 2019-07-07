@@ -1,0 +1,14 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	_([1, 2, 3])
+	 .tap(function(array) {
+	   // Mutate input array.
+	   array.pop();
+	 })
+	 .reverse()
+	 .value();
+	// => [2, 1]
+
+</script></head><body></body></html>

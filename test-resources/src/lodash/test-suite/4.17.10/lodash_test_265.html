@@ -1,0 +1,13 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	function square(n) {
+	  return n * n;
+	}
+
+	var addSquare = _.flow([_.add, square]);
+	addSquare(1, 2);
+	// => 9
+
+</script></head><body></body></html>

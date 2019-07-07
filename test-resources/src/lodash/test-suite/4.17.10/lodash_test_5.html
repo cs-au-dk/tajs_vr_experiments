@@ -1,0 +1,14 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var array = [1];
+	var other = _.concat(array, 2, [3], [[4]]);
+
+	console.log(other);
+	// => [1, 2, 3, [4]]
+
+	console.log(array);
+	// => [1]
+
+</script></head><body></body></html>

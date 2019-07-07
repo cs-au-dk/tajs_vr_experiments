@@ -1,0 +1,18 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      function Foo() {
+        this.a = 1;
+        this.b = 2;
+      }
+     
+      Foo.prototype.c = 3;
+     
+      _.forInRight(new Foo, function(value, key) {
+        console.log(key);
+      });
+      // => logs 'c', 'b', and 'a' assuming `_.forIn ` logs 'a', 'b', and 'c'
+
+
+</script></head><body></body></html>

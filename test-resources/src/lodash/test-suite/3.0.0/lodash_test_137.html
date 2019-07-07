@@ -1,0 +1,14 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      var object = { 'user': 'fred', 'age': 40 };
+     
+      _.pick(object, 'user');
+      // => { 'user': 'fred' }
+     
+      _.pick(object, _.isString);
+      // => { 'user': 'fred' }
+
+
+</script></head><body></body></html>

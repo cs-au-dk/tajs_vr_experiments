@@ -1,0 +1,24 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      var object = { 'user': 'fred' };
+      var other = { 'user': 'fred' };
+     
+      object == other;
+      // => false
+     
+      _.isEqual(object, other);
+      // => true
+     
+      // using a customizer callback
+      var array = ['hello', 'goodbye'];
+      var other = ['hi', 'goodbye'];
+     
+      _.isEqual(array, other, function(value, other) {
+        return _.every([value, other], RegExp.prototype.test, /^h(?:i|ello)$/) || undefined;
+      });
+      // => true
+
+
+</script></head><body></body></html>

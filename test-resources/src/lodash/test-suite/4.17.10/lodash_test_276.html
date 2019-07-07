@@ -1,0 +1,13 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var func = _.nthArg(1);
+	func('a', 'b', 'c', 'd');
+	// => 'b'
+
+	var func = _.nthArg(-2);
+	func('a', 'b', 'c', 'd');
+	// => 'c'
+
+</script></head><body></body></html>

@@ -1,0 +1,22 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      _.sortBy([1, 2, 3], function(n) { return Math.sin(n); });
+      // => [3, 1, 2]
+     
+      _.sortBy([1, 2, 3], function(n) { return this.sin(n); }, Math);
+      // => [3, 1, 2]
+     
+      var users = [
+        { 'user': 'fred' },
+        { 'user': 'pebbles' },
+        { 'user': 'barney' }
+      ];
+     
+      // using the "_.property" callback shorthand
+      _.pluck(_.sortBy(users, 'user'), 'user');
+      // => ['barney', 'fred', 'pebbles']
+
+
+</script></head><body></body></html>

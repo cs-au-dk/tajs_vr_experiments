@@ -1,0 +1,15 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      var sum = _.reduce([1, 2, 3], function(sum, n) { return sum + n; });
+      // => 6
+     
+      var mapped = _.reduce({ 'a': 1, 'b': 2, 'c': 3 }, function(result, n, key) {
+        result[key] = n * 3;
+        return result;
+      }, {});
+      // => { 'a': 3, 'b': 6, 'c': 9 } (iteration order is not guaranteed)
+
+
+</script></head><body></body></html>

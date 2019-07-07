@@ -1,0 +1,33 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      var users = {
+        'data': [{ 'user': 'barney' }]
+      };
+     
+      var ages = {
+        'data': [{ 'age': 36 }]
+      };
+     
+      _.merge(users, ages);
+      // => { 'data': [{ 'user': 'barney', 'age': 36 }, { 'user': 'fred', 'age': 40 }] }
+     
+      // using a customizer callback
+      var object = {
+        'fruits': ['apple'],
+        'vegetables': ['beet']
+      };
+
+      var other = {
+        'fruits': ['banana'],
+        'vegetables': ['carrot']
+      };
+
+      _.merge(object, other, function(a, b) {
+        return _.isArray(a) ? a.concat(b) : undefined;
+      });
+      // => { 'fruits': ['apple', 'banana'], 'vegetables': ['beet', 'carrot'] }
+
+
+</script></head><body></body></html>

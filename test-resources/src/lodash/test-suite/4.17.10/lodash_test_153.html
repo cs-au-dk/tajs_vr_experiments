@@ -1,0 +1,17 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	_.isObject({});
+	// => true
+
+	_.isObject([1, 2, 3]);
+	// => true
+
+	_.isObject(_.noop);
+	// => true
+
+	_.isObject(null);
+	// => false
+
+</script></head><body></body></html>

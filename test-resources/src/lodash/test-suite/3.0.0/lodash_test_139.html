@@ -1,0 +1,19 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      var squares = _.transform([1, 2, 3, 4, 5, 6], function(result, n) {
+        n *= n;
+        if (n % 2) {
+          return result.push(n) < 3;
+        }
+      });
+      // => [1, 9, 25]
+     
+      var mapped = _.transform({ 'a': 1, 'b': 2, 'c': 3 }, function(result, n, key) {
+        result[key] = n * 3;
+      });
+      // => { 'a': 3, 'b': 6, 'c': 9 }
+
+
+</script></head><body></body></html>

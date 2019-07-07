@@ -1,0 +1,14 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	function customizer(objValue, srcValue) {
+	  return _.isUndefined(objValue) ? srcValue : objValue;
+	}
+
+	var defaults = _.partialRight(_.assignWith, customizer);
+
+	defaults({ 'a': 1 }, { 'b': 2 }, { 'a': 3 });
+	// => { 'a': 1, 'b': 2 }
+
+</script></head><body></body></html>

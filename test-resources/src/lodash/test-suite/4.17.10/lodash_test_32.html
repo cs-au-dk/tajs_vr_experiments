@@ -1,0 +1,11 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var array = [{ 'x': 1 }, { 'x': 2 }, { 'x': 3 }, { 'x': 1 }];
+
+	_.pullAllBy(array, [{ 'x': 1 }, { 'x': 3 }], 'x');
+	console.log(array);
+	// => [{ 'x': 2 }]
+
+</script></head><body></body></html>

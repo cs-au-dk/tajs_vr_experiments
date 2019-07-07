@@ -1,0 +1,22 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      _.every([true, 1, null, 'yes']);
+      // => false
+     
+      var users = [
+        { 'user': 'barney', 'age': 36 },
+        { 'user': 'fred',   'age': 40 }
+      ];
+     
+      // using the "_.property" callback shorthand
+      _.every(users, 'age');
+      // => true
+     
+      // using the "_.matches" callback shorthand
+      _.every(users, { 'age': 36 });
+      // => false
+
+
+</script></head><body></body></html>

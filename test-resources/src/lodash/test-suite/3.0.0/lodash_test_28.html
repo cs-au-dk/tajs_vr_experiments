@@ -1,0 +1,23 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      _.takeRightWhile([1, 2, 3], function(n) { return n > 1; });
+      // => [2, 3]
+     
+      var users = [
+        { 'user': 'barney',  'status': 'busy', 'active': false },
+        { 'user': 'fred',    'status': 'busy', 'active': true },
+        { 'user': 'pebbles', 'status': 'away', 'active': true }
+      ];
+     
+      // using the "_.property" callback shorthand
+      _.pluck(_.takeRightWhile(users, 'active'), 'user');
+      // => ['fred', 'pebbles']
+     
+      // using the "_.matches" callback shorthand
+      _.pluck(_.takeRightWhile(users, { 'status': 'away' }), 'user');
+      // => ['pebbles']
+
+
+</script></head><body></body></html>

@@ -1,0 +1,38 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      // avoid costly calculations while the window size is in flux
+      jQuery(window).on('resize', _.debounce(calculateLayout, 150));
+     
+      // invoke `sendMail` when the click event is fired, debouncing subsequent calls
+      jQuery('#postbox').on('click', _.debounce(sendMail, 300, {
+        'leading': true,
+        'trailing': false
+      }));
+     
+      // ensure `batchLog` is invoked once after 1 second of debounced calls
+      var source = new EventSource('/stream');
+      jQuery(source).on('message', _.debounce(batchLog, 250, {
+        'maxWait': 1000
+      }));
+     
+      // cancel a debounced call
+      var todoChanges = _.debounce(batchLog, 1000);
+      Object.observe(models.todo, todoChanges);
+     
+      Object.observe(models, function(changes) {
+        if (_.find(changes, { 'user': 'todo', 'type': 'delete'})) {
+          todoChanges.cancel();
+        }
+      }, ['delete']);
+     
+      // ...at some point `models.todo` is changed
+      models.todo.completed = true;
+     
+      // ...before 1 second has passed `models.todo` is deleted
+      // which cancels the debounced `todoChanges` call
+      delete models.todo;
+
+
+</script></head><body></body></html>

@@ -1,0 +1,10 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var object = { 'a': [{ 'b': { 'c': 3 } }, 4] };
+
+	_(object).at(['a[0].b.c', 'a[1]']).value();
+	// => [3, 4]
+
+</script></head><body></body></html>

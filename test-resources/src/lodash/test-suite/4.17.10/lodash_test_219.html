@@ -1,0 +1,15 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	function Foo() {
+	  this.a = 1;
+	  this.b = 2;
+	}
+
+	Foo.prototype.c = 3;
+
+	_.toPairsIn(new Foo);
+	// => [['a', 1], ['b', 2], ['c', 3]] (iteration order is not guaranteed)
+
+</script></head><body></body></html>

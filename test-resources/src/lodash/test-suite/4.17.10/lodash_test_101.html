@@ -1,0 +1,25 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	_.some([null, 0, 'yes', false], Boolean);
+	// => true
+
+	var users = [
+	  { 'user': 'barney', 'active': true },
+	  { 'user': 'fred',   'active': false }
+	];
+
+	// The `_.matches` iteratee shorthand.
+	_.some(users, { 'user': 'barney', 'active': false });
+	// => false
+
+	// The `_.matchesProperty` iteratee shorthand.
+	_.some(users, ['active', false]);
+	// => true
+
+	// The `_.property` iteratee shorthand.
+	_.some(users, 'active');
+	// => true
+
+</script></head><body></body></html>

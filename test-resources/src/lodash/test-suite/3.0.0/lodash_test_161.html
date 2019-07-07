@@ -1,0 +1,21 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      _.trunc('hi-diddly-ho there, neighborino');
+      // => 'hi-diddly-ho there, neighbo...'
+     
+      _.trunc('hi-diddly-ho there, neighborino', 24);
+      // => 'hi-diddly-ho there, n...'
+     
+      _.trunc('hi-diddly-ho there, neighborino', { 'length': 24, 'separator': ' ' });
+      // => 'hi-diddly-ho there,...'
+     
+      _.trunc('hi-diddly-ho there, neighborino', { 'length': 24, 'separator': /,? +/ });
+      //=> 'hi-diddly-ho there...'
+     
+      _.trunc('hi-diddly-ho there, neighborino', { 'omission': ' [...]' });
+      // => 'hi-diddly-ho there, neig [...]'
+
+
+</script></head><body></body></html>

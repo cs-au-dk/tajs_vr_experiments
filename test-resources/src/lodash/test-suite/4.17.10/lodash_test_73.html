@@ -1,0 +1,16 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var wrapped = _([1, 2]);
+
+    var x = wrapped[Symbol.iterator]
+    var res = wrapped[Symbol.iterator].call(wrapped);
+	res === wrapped;
+	// => true
+
+	var y = Array.from(wrapped);
+	console.log(y);
+	// => [1, 2]
+
+</script></head><body></body></html>

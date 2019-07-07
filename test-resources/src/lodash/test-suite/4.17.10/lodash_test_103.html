@@ -1,0 +1,10 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	_.defer(function(stamp) {
+	  console.log(_.now() - stamp);
+	}, _.now());
+	// => Logs the number of milliseconds it took for the deferred invocation.
+
+</script></head><body></body></html>

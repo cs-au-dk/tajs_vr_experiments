@@ -1,0 +1,22 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      var odds = _.reject([1, 2, 3, 4], function(n) { return n % 2 == 0; });
+      // => [1, 3]
+     
+      var users = [
+        { 'user': 'barney', 'age': 36, 'active': false },
+        { 'user': 'fred',   'age': 40, 'active': true }
+      ];
+     
+      // using the "_.property" callback shorthand
+      _.pluck(_.reject(users, 'active'), 'user');
+      // => ['barney']
+     
+      // using the "_.matches" callback shorthand
+      _.pluck(_.reject(users, { 'age': 36 }), 'user');
+      // => ['fred']
+
+
+</script></head><body></body></html>

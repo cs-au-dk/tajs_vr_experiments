@@ -1,0 +1,22 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	function vowels(string) {
+	  return _.filter(string, function(v) {
+	    return /[aeiou]/i.test(v);
+	  });
+	}
+
+	_.mixin({ 'vowels': vowels });
+	_.vowels('fred');
+	// => ['e']
+
+	_('fred').vowels().value();
+	// => ['e']
+
+	_.mixin({ 'vowels': vowels }, { 'chain': false });
+	_('fred').vowels();
+	// => ['e']
+
+</script></head><body></body></html>

@@ -1,0 +1,13 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var objects = [
+	  { 'a': 1, 'b': 2, 'c': 3 },
+	  { 'a': 4, 'b': 5, 'c': 6 }
+	];
+
+	_.find(objects, _.matchesProperty('a', 4));
+	// => { 'a': 4, 'b': 5, 'c': 6 }
+
+</script></head><body></body></html>

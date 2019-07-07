@@ -1,0 +1,16 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var users = [
+	  { 'user': 'fred',   'age': 48 },
+	  { 'user': 'barney', 'age': 34 },
+	  { 'user': 'fred',   'age': 40 },
+	  { 'user': 'barney', 'age': 36 }
+	];
+
+	// Sort by `user` in ascending order and by `age` in descending order.
+	_.orderBy(users, ['user', 'age'], ['asc', 'desc']);
+	// => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
+
+</script></head><body></body></html>

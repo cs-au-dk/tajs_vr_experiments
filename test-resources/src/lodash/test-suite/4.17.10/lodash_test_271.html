@@ -1,0 +1,16 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var objects = [
+	  { 'a': { 'b': _.constant(2) } },
+	  { 'a': { 'b': _.constant(1) } }
+	];
+
+	_.map(objects, _.method('a.b'));
+	// => [2, 1]
+
+	_.map(objects, _.method(['a', 'b']));
+	// => [2, 1]
+
+</script></head><body></body></html>

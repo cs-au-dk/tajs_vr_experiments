@@ -1,0 +1,14 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var objects = [{ 'n': 4 }, { 'n': 2 }, { 'n': 8 }, { 'n': 6 }];
+
+	_.sumBy(objects, function(o) { return o.n; });
+	// => 20
+
+	// The `_.property` iteratee shorthand.
+	_.sumBy(objects, 'n');
+	// => 20
+
+</script></head><body></body></html>

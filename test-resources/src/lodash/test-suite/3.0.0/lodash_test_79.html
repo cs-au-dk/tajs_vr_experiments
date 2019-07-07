@@ -1,0 +1,25 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      var abc = function(a, b, c) {
+        return [a, b, c];
+      };
+     
+      var curried = _.curry(abc);
+     
+      curried(1)(2)(3);
+      // => [1, 2, 3]
+     
+      curried(1, 2)(3);
+      // => [1, 2, 3]
+     
+      curried(1, 2, 3);
+      // => [1, 2, 3]
+     
+      // using placeholders
+      curried(1)(_, 3)(2);
+      // => [1, 2, 3]
+
+
+</script></head><body></body></html>

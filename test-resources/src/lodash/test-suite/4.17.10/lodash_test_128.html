@@ -1,0 +1,11 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var objects = [{ 'a': 1 }, { 'b': 2 }];
+
+	var shallow = _.clone(objects);
+	console.log(shallow[0] === objects[0]);
+	// => true
+
+</script></head><body></body></html>

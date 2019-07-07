@@ -1,0 +1,16 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var saves = ['profile', 'settings'];
+
+	var done = _.after(saves.length, function() {
+	  console.log('done saving!');
+	});
+
+	_.forEach(saves, function(type) {
+	  asyncSave({ 'type': type, 'complete': done });
+	});
+	// => Logs 'done saving!' after the two async saves have completed.
+
+</script></head><body></body></html>

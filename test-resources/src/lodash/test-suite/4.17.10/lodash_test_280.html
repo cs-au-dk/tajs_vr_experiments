@@ -1,0 +1,16 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var objects = [
+	  { 'a': { 'b': 2 } },
+	  { 'a': { 'b': 1 } }
+	];
+
+	_.map(objects, _.property('a.b'));
+	// => [2, 1]
+
+	_.map(_.sortBy(objects, _.property(['a', 'b'])), 'a.b');
+	// => [1, 2]
+
+</script></head><body></body></html>

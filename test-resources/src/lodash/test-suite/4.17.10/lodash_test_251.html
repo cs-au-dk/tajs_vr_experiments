@@ -1,0 +1,14 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	_.trim('  abc  ');
+	// => 'abc'
+
+	_.trim('-_-abc-_-', '_-');
+	// => 'abc'
+
+	_.map(['  foo  ', '  bar  '], _.trim);
+	// => ['foo', 'bar']
+
+</script></head><body></body></html>

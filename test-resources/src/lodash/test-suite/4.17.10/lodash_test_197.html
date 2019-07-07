@@ -1,0 +1,15 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	function Foo() {
+	  this.a = _.constant('a');
+	  this.b = _.constant('b');
+	}
+
+	Foo.prototype.c = _.constant('c');
+
+	_.functions(new Foo);
+	// => ['a', 'b']
+
+</script></head><body></body></html>

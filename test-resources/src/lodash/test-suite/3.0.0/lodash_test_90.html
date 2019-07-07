@@ -1,0 +1,19 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      var greet = function(greeting, name) {
+        return greeting + ' ' + name;
+      };
+     
+      var greetFred = _.partialRight(greet, 'fred');
+      greetFred('hi');
+      // => 'hi fred'
+     
+      // using placeholders
+      var sayHelloTo = _.partialRight(greet, 'hello', _);
+      sayHelloTo('fred');
+      // => 'hello fred'
+
+
+</script></head><body></body></html>

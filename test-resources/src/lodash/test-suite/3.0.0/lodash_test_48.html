@@ -1,0 +1,22 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      var evens = _.filter([1, 2, 3, 4], function(n) { return n % 2 == 0; });
+      // => [2, 4]
+     
+      var users = [
+        { 'user': 'barney', 'age': 36, 'active': false },
+        { 'user': 'fred',   'age': 40, 'active': true }
+      ];
+     
+      // using the "_.property" callback shorthand
+      _.pluck(_.filter(users, 'active'), 'user');
+      // => ['fred']
+     
+      // using the "_.matches" callback shorthand
+      _.pluck(_.filter(users, { 'age': 36 }), 'user');
+      // => ['barney']
+
+
+</script></head><body></body></html>

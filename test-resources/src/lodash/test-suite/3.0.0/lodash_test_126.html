@@ -1,0 +1,11 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      _.forOwn({ '0': 'zero', '1': 'one', 'length': 2 }, function(n, key) {
+        console.log(key);
+      });
+      // => logs '0', '1', and 'length' (iteration order is not guaranteed)
+
+
+</script></head><body></body></html>

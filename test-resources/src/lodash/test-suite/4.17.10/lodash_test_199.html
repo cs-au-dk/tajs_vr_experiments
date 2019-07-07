@@ -1,0 +1,16 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var object = { 'a': [{ 'b': { 'c': 3 } }] };
+
+	_.get(object, 'a[0].b.c');
+	// => 3
+
+	_.get(object, ['a', '0', 'b', 'c']);
+	// => 3
+
+	_.get(object, 'a.b.c', 'default');
+	// => 'default'
+
+</script></head><body></body></html>

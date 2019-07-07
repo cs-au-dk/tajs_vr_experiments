@@ -1,0 +1,19 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      function Foo() {
+        this.a = 1;
+        this.b = 2;
+      }
+     
+      Foo.prototype.c = 3;
+     
+      _.values(new Foo);
+      // => [1, 2] (iteration order is not guaranteed)
+     
+      _.values('hi');
+      // => ['h', 'i']
+
+
+</script></head><body></body></html>

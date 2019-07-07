@@ -1,0 +1,24 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      _.max([4, 2, 8, 6]);
+      // => 8
+     
+      _.max([]);
+      // => -Infinity
+     
+      var users = [
+        { 'user': 'barney', 'age': 36 },
+        { 'user': 'fred',   'age': 40 }
+      ];
+     
+      _.max(users, function(chr) { return chr.age; });
+      // => { 'user': 'fred', 'age': 40 };
+     
+      // using the "_.property" callback shorthand
+      _.max(users, 'age');
+      // => { 'user': 'fred', 'age': 40 };
+
+
+</script></head><body></body></html>

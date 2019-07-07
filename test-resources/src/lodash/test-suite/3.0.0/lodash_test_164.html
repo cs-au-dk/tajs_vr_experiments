@@ -1,0 +1,15 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      // avoid throwing errors for invalid selectors
+      var elements = _.attempt(function() {
+        return document.querySelectorAll(selector);
+      });
+     
+      if (_.isError(elements)) {
+        elements = [];
+      }
+
+
+</script></head><body></body></html>

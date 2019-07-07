@@ -1,0 +1,10 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var object = {};
+
+	_.updateWith(object, '[0][1]', _.constant('a'), Object);
+	// => { '0': { '1': 'a' } }
+
+</script></head><body></body></html>

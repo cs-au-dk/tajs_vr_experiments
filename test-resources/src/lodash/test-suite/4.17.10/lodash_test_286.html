@@ -1,0 +1,13 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var objects = _.times(2, _.stubObject);
+
+	console.log(objects);
+	// => [{}, {}]
+
+	console.log(objects[0] === objects[1]);
+	// => false
+
+</script></head><body></body></html>

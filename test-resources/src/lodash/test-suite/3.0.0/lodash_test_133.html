@@ -1,0 +1,18 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      _.mapValues({ 'a': 1, 'b': 2, 'c': 3} , function(n) { return n * 3; });
+      // => { 'a': 3, 'b': 6, 'c': 9 }
+     
+      var users = {
+        'fred':    { 'user': 'fred',    'age': 40 },
+        'pebbles': { 'user': 'pebbles', 'age': 1 }
+      };
+     
+      // using the "_.property" callback shorthand
+      _.mapValues(users, 'age');
+      // => { 'fred': 40, 'pebbles': 1 } (iteration order is not guaranteed)
+
+
+</script></head><body></body></html>

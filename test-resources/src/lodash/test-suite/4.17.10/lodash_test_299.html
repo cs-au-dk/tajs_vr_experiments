@@ -1,0 +1,14 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var objects = [{ 'n': 4 }, { 'n': 2 }, { 'n': 8 }, { 'n': 6 }];
+
+	_.meanBy(objects, function(o) { return o.n; });
+	// => 5
+
+	// The `_.property` iteratee shorthand.
+	_.meanBy(objects, 'n');
+	// => 5
+
+</script></head><body></body></html>

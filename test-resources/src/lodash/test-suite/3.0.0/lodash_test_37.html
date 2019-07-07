@@ -1,0 +1,19 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-3.0.0.js></script>
+<script>
+     
+      var users = [
+        { 'user': 'barney',  'age': 36 },
+        { 'user': 'fred',    'age': 40 },
+        { 'user': 'pebbles', 'age': 1 }
+      ];
+     
+      var youngest = _.chain(users)
+        .sortBy('age')
+        .map(function(chr) { return chr.user + ' is ' + chr.age; })
+        .first()
+        .value();
+      // => 'pebbles is 1'
+
+
+</script></head><body></body></html>

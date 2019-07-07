@@ -1,0 +1,13 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var arrays = _.times(2, _.stubArray);
+
+	console.log(arrays);
+	// => [[], []]
+
+	console.log(arrays[0] === arrays[1]);
+	// => false
+
+</script></head><body></body></html>

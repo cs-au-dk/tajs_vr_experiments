@@ -1,0 +1,12 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	var p = _.wrap(_.escape, function(func, text) {
+	  return '<p>' + func(text) + '</p>';
+	});
+
+	p('fred, barney, & pebbles');
+	// => '<p>fred, barney, &amp; pebbles</p>'
+
+</script></head><body></body></html>

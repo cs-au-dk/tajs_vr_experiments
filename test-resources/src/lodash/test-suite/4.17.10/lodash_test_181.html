@@ -1,0 +1,17 @@
+<html><head><title></title>
+<script src=../../libraries/lodash-4.17.10.js></script>
+<script>
+
+	_.toSafeInteger(3.2);
+	// => 3
+
+	_.toSafeInteger(Number.MIN_VALUE);
+	// => 0
+
+	_.toSafeInteger(Infinity);
+	// => 9007199254740991
+
+	_.toSafeInteger('3.2');
+	// => 3
+
+</script></head><body></body></html>
